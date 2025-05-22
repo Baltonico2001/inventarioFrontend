@@ -1,1 +1,111 @@
-/* You can add global styles to this file, and also import other style files */
+//centrar Div
+.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    /* 🔹 Espacio entre los elementos */
+    height: 100vh;
+    /* 🔹 Asegura que se centre en toda la pantalla */
+}
+
+// para los titulos principales h1
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+}
+
+// estilo con bordes suaves y efecto de enfoque 
+.input1 {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ff758c;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: #ff7eb3;
+    /* 🔹 Cambia el color cuando el usuario escribe */
+    box-shadow: 0px 0px 10px rgba(255, 120, 140, 0.5);
+}
+
+
+//estilo minimalista con fondo ligero 
+.input2 {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    background: #f8f9fa;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    outline: none;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+input:focus {
+    border: 2px solid #001aff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+/* boton con Estilo moderno con degradado */
+.boton-moderno {
+    background: linear-gradient(135deg, #000000, #949494);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.boton-moderno:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #ffffff, #000000);
+}
+
+/* boton con Estilo minimalista con bordes animados */
+.boton-minimalista {
+    position: relative;
+    padding: 8px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    background: transparent;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.boton-minimalista::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #0004ff;
+    z-index: -1;
+    top: 0;
+    left: -100%;
+    transition: left 0.3s ease;
+}
+
+.boton-minimalista:hover {
+    color: #fff;
+}
+
+.boton-minimalista:hover::before {
+    left: 0;
+}
