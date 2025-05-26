@@ -1,0 +1,89 @@
+<style>
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+.user-table th, .user-table td {
+    border: 1px solid #acacac;
+    padding: 8px;
+    text-align: left;
+}
+.user-table th {
+    background-color: #0400ff;
+    font-weight: bold;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+.action-btn {
+    padding: 4px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    transition: background 0.2s;
+}
+.edit-btn {
+    background-color: #4CAF50;
+}
+.edit-btn:hover {
+    background-color: #388E3C;
+}
+.delete-btn {
+    background-color: #F44336;
+}
+.delete-btn:hover {
+    background-color: #C62828;
+}
+
+
+.save-btn {
+    background-color: #0019fc;
+    cursor: pointer;
+}
+.save-btn:hover {
+    background-color: #f57c00;
+}
+
+
+</style>
+
+<table class="user-table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>
+                <span *ngIf="editingUserId !== user._id">{{ user.name }}</span>
+                <input *ngIf="editingUserId === user._id" type="text" [(ngModel)]="user.name">
+            </td>
+            <td>
+                <span *ngIf="editingUserId !== user._id">{{ user.email }}</span>
+                <input *ngIf="editingUserId === user._id" type="email" [(ngModel)]="user.email">
+            </td>
+            <td>
+                <span *ngIf="editingUserId !== user._id">{{ user.password }}</span>
+                <input *ngIf="editingUserId === user._id" type="text" [(ngModel)]="user.password">
+            </td>
+            <td>
+                <div class="action-buttons">
+                    <button *ngIf="editingUserId !== user._id" class="action-btn edit-btn"
+                        (click)="onEdit(user)">Modificar</button>
+                        <button *ngIf="editingUserId === user._id" class=" save-btn" (click)="saveChanges(user)">Guardar</button>
+                    <button class="action-btn delete-btn" (click)="deleteUser(user._id)">Eliminar</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,35 @@
+- ng serve Para levantar el servicio. 
+
+
+- Verificacamos en este caso si el modulo de @angular/router esta instalado (npm list @angular/router)
+    en este caso no estaba instalado :
+    PS D:\xampp\htdocs\InventarioAngular\inventario-front> npm list @angular/router
+    mi-app@0.0.0 D:\xampp\htdocs\InventarioAngular\inventario-front
+    └── (empty)
+    para instalarlo utilizamos (npm install @angular/router)
+
+- Aparecen vulnerabilidades en las dependencias, con este comando podemos solucionarlas 
+    (npm audit fix), en caso que no se pueda, lo forzamos con (npm audit fix --force).
+
+
+- Si nos sigue generando problemas de compataibilidad con las dependencias, una con la otra lo mejor es 
+  desisntarlas y reinstalarlas todas en su ultima version.
+        npm uninstall $(npm ls --depth=0 --json | jq -r '.dependencies | keys | join(" ")') → Borra las dependencias (no afecta tu código).
+        npm cache clean --force → Limpia la caché de npm para evitar errores en futuras instalaciones.
+        npm install → Reinstala todas las dependencias en base a package.json.
+
+
+- Crear componentes y modulos (Ejemplo con usuario)
+    ng generate module usuario -> donde definirás las dependencias y componentes específicos para este módulo.
+    ng generate service usuario/usuario -> se encargará de hacer solicitudes al backend para crear, leer, actualizar y eliminar usuarios.
+    ng generate module usuario-routing --flat -> donde definiremos las rutas específicas para login y perfil
+    ng generate component usuario/login
+    ng generate component usuario/perfil
+
+- logica estructural
+    usuario.component.html → Contiene la estructura visual (vista) del módulo de usuario.
+    usuario.component.scss → Contiene los estilos específicos para este componente.
+    usuario.component.spec.ts → Archivo para pruebas unitarias del componente.
+    usuario.component.ts → Contiene la lógica del componente, como eventos y funciones.
+
+    

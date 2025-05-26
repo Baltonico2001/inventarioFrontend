@@ -1,8 +1,8 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
-import { UsuarioModule } from './app/modules/usuario/usuario.module';
+import { AppComponent } from './app/app.component'; // ✅ Usa un componente raíz en lugar de un módulo
 
-bootstrapApplication(UsuarioModule, {
+bootstrapApplication(AppComponent, {
   providers: [provideRouter(routes)],
 });
