@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UsuarioService {
-  private apiUrl = 'http://localhost:3000/user'; // ✅ Asegúrate de que esta es la URL correcta del backend
+  private apiUrl = 'http://localhost:3000/user'; // Asegúrate de que esta es la URL correcta del backend
 
   constructor(private http: HttpClient) {}
 
@@ -14,7 +14,7 @@ export class UsuarioService {
   createUser(userData: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, userData, {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-      responseType: 'text' as 'json', // 🔥 Cambio clave para evitar conflictos de respuesta
+      responseType: 'text' as 'json', // Cambio clave para evitar conflictos de respuesta
     });
   }
 

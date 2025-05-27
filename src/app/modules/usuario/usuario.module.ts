@@ -12,6 +12,7 @@ import {
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
+import { AllComponent } from './all/all.component'; 
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent, // ✅ Así deben estar los componentes standalone
     ProfileComponent,
     RegisterComponent,
+    AllComponent
   ],
   providers: [UsuarioService, provideHttpClient(withInterceptorsFromDi())],
 })
